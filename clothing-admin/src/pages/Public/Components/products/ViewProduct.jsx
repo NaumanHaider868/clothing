@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import { IoClose } from "react-icons/io5";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { MdZoomOut, MdZoomIn, MdFitScreen } from "react-icons/md";
@@ -113,25 +113,17 @@ function ViewProduct() {
         setPosition({ x: 0, y: 0 });
     };
 
-    const moveNext = () => {
-        if (currentImageIndex < productImages.length - 1) {
-            setCurrentImageIndex(currentImageIndex + 1);
-        } else {
-            setCurrentImageIndex(0);
-        }
+    const moveNext = useCallback(() => {
+        setCurrentImageIndex(index => index < productImages.length - 1 ? index + 1 : 0);
         setZoomLevel(1);
         setPosition({ x: 0, y: 0 });
-    };
+    }, [productImages.length]);
 
-    const movePrev = () => {
-        if (currentImageIndex > 0) {
-            setCurrentImageIndex(currentImageIndex - 1);
-        } else {
-            setCurrentImageIndex(productImages.length - 1);
-        }
+    const movePrev = useCallback(() => {
+        setCurrentImageIndex(index => index > 0 ? index - 1 : productImages.length - 1);
         setZoomLevel(1);
         setPosition({ x: 0, y: 0 });
-    };
+    }, [productImages.length]);
 
     const zoomIn = () => {
         setZoomLevel(prev => Math.min(prev + 0.25, 5));
@@ -207,7 +199,7 @@ function ViewProduct() {
 
         document.addEventListener('keydown', handleKeyDown);
         return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [isOpen, currentImageIndex, productImages.length]);
+    }, [isOpen, moveNext, movePrev]);
 
     const handleVariantSelect = (index) => {
         setSelectedVariant(index);

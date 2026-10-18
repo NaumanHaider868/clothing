@@ -1,8 +1,8 @@
-import React from 'react'
 import { GoPlus } from 'react-icons/go';
 import Cloth4 from '../../../../assets/img/cloth4.png';
 import Cloth6 from '../../../../assets/img/cloth6.png';
 import Cloth2 from '../../../../assets/img/cloth2.png';
+import {Link} from "react-router-dom"
 
 export function YearCollection() {
     const products = [
@@ -49,7 +49,7 @@ export function YearCollection() {
                 ))}
             </div>
 
-            <a className='text-[#8A8A8A] float-right pt-[45px] cursor-pointer hover:underline'>View All</a>
+            <Link className='text-[#8A8A8A] float-right pt-[45px] cursor-pointer hover:underline'>View All</Link>
         </div>
     )
 }
