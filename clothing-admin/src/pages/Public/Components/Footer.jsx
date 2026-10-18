@@ -27,8 +27,8 @@ export default function Footer() {
                 <div className='sec-section'>
                     <span>TECHNOLOGIES</span>
                     <div className='pt-[20px] footer-sec'>
-                        <img src={logo} className='logo' />
-                        <img src={footerImg} className='img' />
+                        <img src={logo} className='logo' alt="" />
+                        <img src={footerImg} className='img' alt="" />
                     </div>
                 </div>
                 <div></div>

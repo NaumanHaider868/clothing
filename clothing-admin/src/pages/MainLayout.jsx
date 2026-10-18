@@ -1,8 +1,6 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from './Public/Navbar'
 import Sidebar from "./Public/Sidebar";
-import Footer from "./Public/Components/Footer";
 
 function MainLayout() {
 
@@ -19,7 +17,6 @@ function MainLayout() {
                     </section>
                 </div>
             </div>
-            {/* <Footer /> */}
         </>
     );
 }

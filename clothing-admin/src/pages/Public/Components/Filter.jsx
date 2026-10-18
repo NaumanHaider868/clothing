@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IoIosArrowForward, IoIosArrowUp } from 'react-icons/io';
 import { Range } from 'react-range';
 
@@ -7,17 +7,7 @@ export default function Filter() {
     const [priceRange, setPriceRange] = useState([50, 1000]); // Default price range
 
     const colors = ['black', 'red', 'green', 'yellow', 'brown', 'blue', 'purple'];
-    const productTypes = [
-        'Shorts',
-        'Trousers',
-        'Cotton Shirt',
-        'Polo Shirt',
-        'T-Shirt',
-        'Outerwear',
-        'Jeans',
-        'Sweatshirts',
-        'Jacket',
-    ];
+    
     const seasons = ['Summer', 'Winter', 'Spring', 'Autumn'];
 
     const toggleSection = (section) => {
@@ -145,31 +135,6 @@ export default function Filter() {
                         </div>
                     )}
                 </div>
-
-                {/* Product Type */}
-                {/* <div className="accordion">
-                    <button
-                        className="w-full text-left py-3 flex justify-between items-center"
-                        onClick={() => toggleSection('productType')}
-                    >
-                        <span className="font-semibold">Product Type</span>
-                        <span>
-                            {openSections.includes('productType') ? <IoIosArrowUp /> : <IoIosArrowForward />}
-                        </span>
-                    </button>
-                    {openSections.includes('productType') && (
-                        <div className="pb-3 pl-4 product-btns">
-                            {productTypes.map((type) => (
-                                <button
-                                    key={type}
-                                    className="px-3 py-1 border rounded cursor-pointer hover:bg-gray-200"
-                                >
-                                    {type}
-                                </button>
-                            ))}
-                        </div>
-                    )}
-                </div> */}
 
                 {/* Seasons */}
                 <div className="accordion">
